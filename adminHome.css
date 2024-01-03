@@ -306,28 +306,7 @@ a {
 .mrcLanding #roomTable th:nth-child(1),
 .mrcLanding #reportsTable th:nth-child(1),
 .mrcLanding #feedTable th:nth-child(1),
-.mrcLanding #appTable th:nth-child(1) {
-    width: 10%;
-}
-
-.mrcLanding #tenantTable th:nth-child(2),
-.mrcLanding #reqTable th:nth-child(2),
-.mrcLanding #roomTable th:nth-child(2),
-.mrcLanding #reportsTable th:nth-child(2),
-.mrcLanding #feedTable th:nth-child(2),
-.mrcLanding #appTable th:nth-child(2) {
-    width: 35%;
-}
-
-.mrcLanding #tenantTable th:nth-child(3),
-.mrcLanding #reqTable th:nth-child(3),
-.mrcLanding #roomTable th:nth-child(3),
-.mrcLanding #reportsTable th:nth-child(3),
-.mrcLanding #feedTable th:nth-child(3),
-.mrcLanding #appTable th:nth-child(3) {
-    width: 35%;
-}
-
+.mrcLanding #appTable th:nth-child(1),
 .mrcLanding #tenantTable th:nth-child(4),
 .mrcLanding #reqTable th:nth-child(4),
 .mrcLanding #roomTable th:nth-child(4),
@@ -336,6 +315,22 @@ a {
 .mrcLanding #appTable th:nth-child(4) {
     width: 10%;
 }
+
+.mrcLanding #tenantTable th:nth-child(2),
+.mrcLanding #reqTable th:nth-child(2),
+.mrcLanding #roomTable th:nth-child(2),
+.mrcLanding #reportsTable th:nth-child(2),
+.mrcLanding #feedTable th:nth-child(2),
+.mrcLanding #appTable th:nth-child(2),
+.mrcLanding #tenantTable th:nth-child(3),
+.mrcLanding #reqTable th:nth-child(3),
+.mrcLanding #roomTable th:nth-child(3),
+.mrcLanding #reportsTable th:nth-child(3),
+.mrcLanding #feedTable th:nth-child(3),
+.mrcLanding #appTable th:nth-child(3)  {
+    width: 35%;
+}
+
 
 #popUpModal {
     display: none;
