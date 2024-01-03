@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="adminHome.css">
-        <script src="adminHome.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
 
     <body id="bodyCont">
@@ -31,22 +31,116 @@
         <section class="manageRentalContainer">
             <div class="popUpModal" id="popUpModal">
                 <div class="pmCol1">
-                    <p>Image is here</p>
+                    <img id="tenantImage" src="" alt="Tenant Image">
                 </div>
                 <div class="pmCol2">
-                    <button>Accept</button>
-                    <button>Reject</button>
+                    <div class="infoColumn">
+                        <button id="editButton">Edit</button>
+                        <button id="closeButton">Close</button>
+                        <div id="editModal" style="display: none;">
+                            <!-- Editable fields -->
+                            <input type="file" id="tenantImageInput" accept="image/*">
+                            <input type="text" id="firstNameInput" placeholder="First Name">
+                            <input type="text" id="middleNameInput" placeholder="Middle Name">
+                            <input type="text" id="lastNameInput" placeholder="Last Name">
+                            <input type="text" id="phoneNumberInput" placeholder="Phone Number">
+                            <!-- Edit buttons -->
+                            <button id="discardButton">Discard</button>
+                            <button id="updateButton">Update</button>
+                        </div>
+                    </div>
+                    <div class="historyColumn">
+                        <div class="scrollableDiv" id="paymentHistory">
+                            <!-- Content for payment history -->
+                            <!-- Use AJAX or similar to load payment history dynamically based on tenantId -->
+                        </div>
+                        <div class="scrollableDiv" id="requisitionHistory">
+                            <!-- Content for requisition history -->
+                            <!-- Use AJAX or similar to load requisition history dynamically based on tenantId -->
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="popUpModal" id="popUpModal">
+                <div class="pmCol2">
+                    <div class="reqInfor">
+                        <h3>Requisition Form - </h3> <!--requisiton id-->
+                        <p>Requester: </p>
+                        <p>Requested Item or Service: </p>
+                        <p>Requested Date: </p>
+                        <p>Document: </p>
+                    </div>
+                    <div class="infoColumn">
+                        <button id="approveButton">Approve</button>
+                        <button id="rejectButton">Reject</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popUpModal" id="popUpModal">
+                <div class="pmCol1">
+                    <img id="roomImage" src="" alt="Room Image">
+                </div>
+                <div class="pmCol2">
+                    <div class="infoColumn">
+                        <button id="editButton">Edit</button>
+                        <button id="closeButton">Close</button>
+                        <div id="editModal" style="display: none;">
+                            <!-- Editable fields -->
+                            <input type="file" id="roomImageInput" accept="image/*">
+                            <input type="text" id="roomNameInput" placeholder="Room Name">
+                            <input type="text" id="middleNameInput" placeholder="Middle Name">
+                            <input type="text" id="lastNameInput" placeholder="Last Name">
+                            <input type="text" id="phoneNumberInput" placeholder="Phone Number">
+                            <!-- Edit buttons -->
+                            <button id="discardButton">Discard</button>
+                            <button id="updateButton">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popUpModal" id="popUpModal">
+                <div class="pmCol2">
+                    <div class="feedInfor">
+                        <h3>Tenant Feedback - </h3> <!--requisiton id-->
+                        <p>Sender: </p>
+                        <p>Requested Item or Service: </p>
+                        <p>Requested Date: </p>
+                        <p>Document: </p>
+                    </div>
+                    <div class="infoColumn">
+                        <button id="ackButton">Acknowledge</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popUpModal" id="popUpModal">
+                <div class="pmCol1">
+                    <img id="appImage" src="" alt="Applicant Image">
+                </div>
+                <div class="pmCol2">
+                    <div class="appInfor">
+                        <h3>Tenant Applicant - </h3> <!--requisiton id-->
+                        <p>Sender: </p>
+                        <p>Requested Item or Service: </p>
+                        <p>Requested Date: </p>
+                        <p>Document: </p>
+                    </div>
+                    <div class="infoColumn">
+                        <button id="approveButton">Approve</button>
+                        <button id="rejectButton">Reject</button>
+                    </div>
+                </div>
+            </div>
+            
+            
 
             <div class="mrcLanding">
                 <div class="mrButtonChoices">
-                    <button>Tenant List</button>
-                    <button>Requistion Forms</button>
-                    <button>Rental Room Details</button>
-                    <button>Reports & Analytics</button>
-                    <button>Feedback & Suggestions</button>
-                    <button>Rental Applications</button>
+                    <button class="displayButton" data-target="tenantDisplay">Tenant List</button>
+                    <button class="displayButton" data-target="reqDisplay">Requisition Forms</button>
+                    <button class="displayButton" data-target="roomDisplay">Rental Room Details</button>
+                    <button class="displayButton" data-target="reportsDisplay">Reports & Analytics</button>
+                    <button class="displayButton" data-target="feedDisplay">Feedback & Suggestions</button>
+                    <button class="displayButton" data-target="appDisplay">Rental Applications</button>
                 </div>
                 <div class="tenantDisplay">
                     <div class="tenantSearch">
@@ -70,7 +164,162 @@
                                     <td>@tenant.FirstName</td>
                                     <td>@tenant.LastName</td>
                                     <td>
-                                        <button class="actionButton" data-tenant-id="@tenant.TenantID">Action</button>
+                                        <button class="actionButton" data-tenant-id="@tenant.TenantID">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                             -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="reqDisplay">
+                    <div class="reqSearch">
+                        <input type="search" placeholder="Search requisition" /><i class="fas fa-search"></i>
+                    </div>
+                    <table id="reqTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Requistion ID</th>
+                                <th>Requisted Item or Service</th>
+                                <th>Requisition Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 
+                            @foreach (var requisiton in Model)
+                            {
+                                <tr>
+                                    <td>@requisition.RequisitionID</td>
+                                    <td>@requisition.RequisitionItem</td>
+                                    <td>@requisition.RequisitionType</td>
+                                    <td>
+                                        <button class="actionButton" data-req-id="@requisition.RequisitonID">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                             -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="roomDisplay">
+                    <div class="roomSearch">
+                        <input type="search" placeholder="Search rooms" /><i class="fas fa-search"></i>
+                    </div>
+                    <table id="roomTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Room ID</th>
+                                <th>Room Details</th>
+                                <th>Room Capacity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 
+                            @foreach (var room in Model)
+                            {
+                                <tr>
+                                    <td>@room.roomID</td>
+                                    <td>@room.roomDetails</td>
+                                    <td>@room.roomCap</td>
+                                    <td>
+                                        <button class="actionButton" data-req-id="@room.roomID">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                             -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="reportsDisplay">
+                    <div class="reportsSearch">
+                        <input type="search" placeholder="Search reports" /><i class="fas fa-search"></i>
+                    </div>
+                    <table id="reportsTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Report ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 
+                            @foreach (var report in Model)
+                            {
+                                <tr>
+                                    <td>@report.ReportID</td>
+                                    <td>@report.ReportFName</td>
+                                    <td>@report.ReportLName</td>
+                                    <td>
+                                        <button class="actionButton" data-tenant-id="@report.ReportID">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                             -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="feedDisplay">
+                    <div class="feedSearch">
+                        <input type="search" placeholder="Search feedbacks and suggestions" /><i class="fas fa-search"></i>
+                    </div>
+                    <table id="feedTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Feedback ID</th>
+                                <th>Feedback Sender</th>
+                                <th>Feedback Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 
+                            @foreach (var feedback in Model)
+                            {
+                                <tr>
+                                    <td>@feedback.FeedbackID</td>
+                                    <td>@feedback.FeedbackSender</td>
+                                    <td>@feedback.FeedbackType</td>
+                                    <td>
+                                        <button class="actionButton" data-req-id="@feedback.FeedbackID">Details</button>
+                                    </td>
+                                </tr>
+                            }
+                             -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="appDisplay">
+                    <div class="appSearch">
+                        <input type="search" placeholder="Search applications" /><i class="fas fa-search"></i>
+                    </div>
+                    <table id="appTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Application ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 
+                            @foreach (var application in Model)
+                            {
+                                <tr>
+                                    <td>@application.ApplicationID</td>
+                                    <td>@application.ApplicationFName</td>
+                                    <td>@application.ApplicationLName</td>
+                                    <td>
+                                        <button class="actionButton" data-tenant-id="@application.ApplicationID">Details</button>
                                     </td>
                                 </tr>
                             }
@@ -138,34 +387,11 @@
                 </div>
             </div>
         </footer>
-        
+
+        <script src="tenantList.js"></script>
+        <script src="manageRental.js"></script>
         <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
             
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-            
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-            
-            function showSlides(n) {
-              let i;
-              let slides = document.getElementsByClassName("mySlides");
-              let dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {slideIndex = 1}    
-              if (n < 1) {slideIndex = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-              }
-              for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex-1].style.display = "block";  
-              dots[slideIndex-1].className += " active";
-            }
         </script>
 
     </body>
