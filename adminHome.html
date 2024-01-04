@@ -13,6 +13,8 @@
 
     <body id="bodyCont">
 
+        
+
         <section id="header">
             <div class="navbar">
                 <a href="#home" class="nbItem" id="homeOpt"><i class="fa-solid fa-house"></i></a>
@@ -28,40 +30,71 @@
             </div>
         </section>
 
+        <div class="reqConfirmPopUp">
+            <div class="rcpDetails">
+                <h3>Requested Items or Service</h3>
+                <div class="rcpItems">
+                    <table>
+                        <tbody>
+                            <td>
+                                <p>Product 1</p>
+                            </td>
+                            <td>
+                                <select id="item1DD">
+                                    <option value="option1">Soap</option>
+                                    <option value="option2">Cleaning Product</option>
+                                    <option value="option3">Grocery</option>
+                                    <option value="option4">Clothes</option>
+                                </select>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="rcpContinue">Continue</button>
+                <button class="rcpCancel">Cancel</button>
+            </div>
+        </div>
+
+        <div class="reqRejectPopUp">
+            <div class="rrpDetails">
+                <h3>Are you sure you want to reject this requisition form?</h3>
+                <span>Note: This can't be undone.</span><br><br><br>
+                <button class="rrpCancel">Cancel</button>
+                <button class="rrpProceed">Proceed</button>
+            </div>
+            </div>
+            
+
         <section class="manageRentalContainer">
             <div class="popUpModal" id="popUpModal">
                 <div class="pmCol1">
                     <img id="tenantImage" src="" alt="Tenant Image">
                 </div>
                 <div class="pmCol2">
-                    <div class="infoColumn">
+
+                    <!-- <div class="infoColumn">
                         <button id="editButton">Edit</button>
                         <button id="closeButton">Close</button>
                         <div id="editModal" style="display: none;">
-                            <!-- Editable fields -->
                             <input type="file" id="tenantImageInput" accept="image/*">
                             <input type="text" id="firstNameInput" placeholder="First Name">
                             <input type="text" id="middleNameInput" placeholder="Middle Name">
                             <input type="text" id="lastNameInput" placeholder="Last Name">
                             <input type="text" id="phoneNumberInput" placeholder="Phone Number">
-                            <!-- Edit buttons -->
                             <button id="discardButton">Discard</button>
                             <button id="updateButton">Update</button>
                         </div>
                     </div>
                     <div class="historyColumn">
                         <div class="scrollableDiv" id="paymentHistory">
-                            <!-- Content for payment history -->
-                            <!-- Use AJAX or similar to load payment history dynamically based on tenantId -->
                         </div>
                         <div class="scrollableDiv" id="requisitionHistory">
-                            <!-- Content for requisition history -->
-                            <!-- Use AJAX or similar to load requisition history dynamically based on tenantId -->
                         </div>
-                    </div>
+                    </div> -->
+
                 </div>
             </div>
-            <div class="popUpModal" id="popUpModal">
+            <div class="popUpModal" id="reqPopUpModal">
                 <div class="pmCol2">
                     <div class="reqInfor">
                         <h3>Requisition Form - </h3> <!--requisiton id-->
@@ -71,10 +104,11 @@
                         <p>Document: </p>
                     </div>
                     <div class="infoColumn">
-                        <button id="approveButton">Approve</button>
-                        <button id="rejectButton">Reject</button>
+                        <button id="reqApprove">Approve</button>
+                        <button id="reqReject">Reject</button>
                     </div>
                 </div>
+                
             </div>
             <div class="popUpModal" id="popUpModal">
                 <div class="pmCol1">
@@ -130,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            
+
             
 
             <div class="mrcLanding">
@@ -181,12 +215,28 @@
                         <thead>
                             <tr>
                                 <th>Requistion ID</th>
-                                <th>Requisted Item or Service</th>
+                                <th>Requester</th>
                                 <th>Requisition Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Ronel</td>
+                                <td>Service</td>
+                                <td>
+                                    <button class="reqActionButton" data-req-id="@requisition.RequisitonID">Details</button>
+                                </td>
+                             </tr>
+                             <tr>
+                                <td>2</td>
+                                <td>Omar</td>
+                                <td>Product</td>
+                                <td>
+                                    <button class="reqActionButton" data-req-id="@requisition.RequisitonID">Details</button>
+                                </td>
+                             </tr>
                             <!-- 
                             @foreach (var requisiton in Model)
                             {
@@ -200,6 +250,7 @@
                                 </tr>
                             }
                              -->
+                             
                         </tbody>
                     </table>
                 </div>

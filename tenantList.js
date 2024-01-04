@@ -17,6 +17,39 @@ $(document).ready(function () {
         $('#popUpModal').show();
     });
 
+    $('.reqActionButton').click(function () {
+        var tenantId = $(this).data('req-id');
+        var reqPM = document.getElementById('reqPopUpModal');
+        var footer = document.querySelector('footer')
+
+        reqPM.style.display = 'block';
+        reqPM.style.height = '300px';
+        footer.style.marginTop = '350px';
+    });
+
+    $('#reqApprove').click(function () {
+        $('.reqConfirmPopUp').show();
+    });
+
+    $('.rcpCancel').click(function () {
+        $('.reqConfirmPopUp').hide();
+    });
+    $('#reqReject').click(function () {
+        $('.reqRejectPopUp').show();
+    });
+    $('.rrpCancel').click(function () {
+        $('.reqRejectPopUp').hide();
+    });
+    $('.rrpProceed').click(function () {
+        $('.reqRejectPopUp').hide();
+        $('#reqPopUpModal').hide();
+        var footer = document.querySelector('footer')
+        footer.style.marginTop = '0';
+    });
+    
+
+    
+
     $('#editButton').click(function () {
         // Show the edit modal
         $('#editModal').show();
@@ -85,3 +118,5 @@ function loadHistoryData(targetElementId, endpoint, tenantId) {
         }
     });
 }
+
+//start

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Margin Example</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header, footer {
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        #bod1 {
+            height: 200px;
+            background-color: lightgreen;
+            display: none;
+        }
+
+        #bod2 {
+            height: 300px;
+            background-color: lightcoral;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+
+    <div id="bod1">Body 1</div>
+    <div id="bod2">Body 2 <button onclick="showBod1()">Show Bod1</button></div>
+
+    <footer>Footer</footer>
+
+    <script>
+        function showBod1() {
+            var bod1 = document.getElementById('bod1');
+            var bod2 = document.getElementById('bod2');
+            var footer = document.querySelector('footer');
+
+            // Display bod1
+            bod1.style.display = 'block';
+
+            // Adjust the margin of bod2 and footer
+        }
+    </script>
+</body>
+</html>
