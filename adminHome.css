@@ -181,7 +181,7 @@ a {
     width: 1300px;
     height: 500px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 50px;
     padding: 10px;
 }
@@ -372,17 +372,26 @@ a {
 #popUpModal, #reqPopUpModal {
     display: none;
     background-color:aliceblue;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     width: 1200px;
     margin: auto;
     margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09); 
 }
 
+#reqPopUpModal i {
+    margin-bottom: 10px;
+    margin-left: 1150px;
+    transition: 0.3s ease;
+}
+
+#reqPopUpModal i:hover {
+    color: #705028;
+}
+
 #reqPopUpModal .infoColumn button {
     width: 45%;
     padding: 10px;
-    margin: 5px;
     background-color: #503514;
     border: none;
     border-radius: 5px;
@@ -407,6 +416,10 @@ a {
     width: 30%;
     margin-left: auto;
     text-align: right;
+}
+
+.reqInfor h3, .reqInfor p {
+    font-size: 15px;
 }
 
 .reqConfirmPopUp,
@@ -483,13 +496,16 @@ a {
     padding: 5px;
 }
 
-
+.reqConfirmPopUp .rcpDetails .rcpItems table {
+    border-collapse: collapse;
+}
 
 .reqConfirmPopUp .rcpDetails .rcpItems td {
-    border: solid red 1px;
+    border-bottom: solid red 1px;
     text-align: center;
     padding: 5px;
     font-size: 13px;
+    border-collapse: collapse;
 }
 
 
@@ -508,3 +524,4 @@ a {
 .reqConfirmPopUp .rcpDetails button:hover {
     background-color: #77542a;
 }
+

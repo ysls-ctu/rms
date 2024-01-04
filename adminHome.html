@@ -6,7 +6,6 @@
         <title>Kerwin's Apartment</title>
         <link rel="icon" type="image/x-icon" href="images/logo2.svg">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="adminHome.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     </head>
@@ -40,12 +39,16 @@
                                 <p>Product 1</p>
                             </td>
                             <td>
-                                <select id="item1DD">
+                                <select id="item1DD" onchange="handleSelectChange(this)">
+                                    <option value="default" selected disabled>Select item in inventory</option>
                                     <option value="option1">Soap</option>
                                     <option value="option2">Cleaning Product</option>
                                     <option value="option3">Grocery</option>
                                     <option value="option4">Clothes</option>
                                 </select>
+                            </td>
+                            <td>
+                                <input type="text" name="" id="numericInput" disabled oninput="handleNumericInputChange()">
                             </td>
                         </tbody>
                     </table>
@@ -95,7 +98,9 @@
                 </div>
             </div>
             <div class="popUpModal" id="reqPopUpModal">
+                <i class="fa-solid fa-circle-xmark" id="reqX"></i>
                 <div class="pmCol2">
+                    
                     <div class="reqInfor">
                         <h3>Requisition Form - </h3> <!--requisiton id-->
                         <p>Requester: </p>
@@ -245,7 +250,7 @@
                                     <td>@requisition.RequisitionItem</td>
                                     <td>@requisition.RequisitionType</td>
                                     <td>
-                                        <button class="actionButton" data-req-id="@requisition.RequisitonID">Details</button>
+                                        <button class="actionButton" data-req-id="@requisition.RequisitionID">Details</button>
                                     </td>
                                 </tr>
                             }
@@ -287,34 +292,8 @@
                 </div>
 
                 <div class="reportsDisplay">
-                    <div class="reportsSearch">
-                        <input type="search" placeholder="Search reports" /><i class="fas fa-search"></i>
-                    </div>
-                    <table id="reportsTable" class="table">
-                        <thead>
-                            <tr>
-                                <th>Report ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 
-                            @foreach (var report in Model)
-                            {
-                                <tr>
-                                    <td>@report.ReportID</td>
-                                    <td>@report.ReportFName</td>
-                                    <td>@report.ReportLName</td>
-                                    <td>
-                                        <button class="actionButton" data-tenant-id="@report.ReportID">Details</button>
-                                    </td>
-                                </tr>
-                            }
-                             -->
-                        </tbody>
-                    </table>
+                    <canvas id="myChart" width="400" height="400"></canvas>
+
                 </div>
 
                 <div class="feedDisplay">
@@ -441,6 +420,8 @@
 
         <script src="tenantList.js"></script>
         <script src="manageRental.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="reportsDashboard.js"></script>
         <script>
             
         </script>
