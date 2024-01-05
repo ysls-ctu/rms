@@ -175,6 +175,7 @@ a {
     margin-bottom: 5px;
 }
 
+
 /* start here */
 
 .manageRentalContainer {
@@ -197,19 +198,6 @@ a {
     height: 100%;
 }
 
-.tenantDisplay,
-.reqDisplay,
-.roomDisplay,
-.reportsDisplay,
-.feedDisplay,
-.appDisplay {
-    width: 80%;
-    padding: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09); 
-    background-color: #FFF9F2;
-    height: 300px;
-    height: 100%;
-}
 
 .mrButtonChoices button {
     width: 100%;
@@ -348,14 +336,37 @@ a {
 .mrcLanding td {
     font-size: 13px;
     font-weight: 500;
-    
 }
 
-.reqDisplay #reqTable td:nth-child(4) {
+.tenantDisplay,
+.reqDisplay,
+.roomDisplay,
+.reportsDisplay,
+.feedDisplay,
+.appDisplay {
+    width: 80%;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09); 
+    background-color: #FFF9F2;
+    height: 300px;
+    height: 100%;
+}
+
+.tenantDisplay,
+.reqDisplay,
+.roomDisplay,
+.feedDisplay,
+.appDisplay {
+    overflow-y: scroll;
+}
+
+.reqDisplay #reqTable td:nth-child(4),
+.tenantDisplay #tenantTable td:nth-child(4) {
     text-align: center;
 }
 
-.reqDisplay #reqTable td:nth-child(4) button {
+.reqDisplay #reqTable td:nth-child(4) button,
+.tenantDisplay #tenantTable td:nth-child(4) button {
     background-color: #503514;
     text-align: center;
     padding: 5px 10px;
@@ -365,7 +376,8 @@ a {
     transition: 0.3s ease;
 }
 
-.reqDisplay #reqTable td:nth-child(4) button:hover {
+.reqDisplay #reqTable td:nth-child(4) button:hover,
+.tenantDisplay #tenantTable td:nth-child(4) button:hover {
     background-color: #77542a;
 }
 

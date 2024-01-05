@@ -195,19 +195,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- 
-                            @foreach (var tenant in Model)
+                            <tr>
+                                <td>1</td>
+                                <td>Ronel</td>
+                                <td>Delig</td>
+                                <td>
+                                    <button class="tenantActionButton" data-tenant-id="@Tenant.TenantID">Details</button>
+                                </td>
+                            </tr>
+                            @foreach (var Tenant in Model)
                             {
                                 <tr>
-                                    <td>@tenant.TenantID</td>
-                                    <td>@tenant.FirstName</td>
-                                    <td>@tenant.LastName</td>
+                                    <td>@Tenant.TenantID</td>
+                                    <td>@Tenant.Tenant_FirstName</td>
+                                    <td>@Tenant.Tenant_LastName</td>
                                     <td>
-                                        <button class="actionButton" data-tenant-id="@tenant.TenantID">Details</button>
+                                        <button class="tenantActionButton" data-tenant-id="@Tenant.TenantID">Details</button>                                    
                                     </td>
                                 </tr>
                             }
-                             -->
+
                         </tbody>
                     </table>
                 </div>
@@ -262,7 +269,6 @@
 
                 <div class="roomDisplay">
                     <div class="roomSearch">
-                        <input type="search" placeholder="Search rooms" /><i class="fas fa-search"></i>
                     </div>
                     <table id="roomTable" class="table">
                         <thead>
@@ -274,19 +280,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- 
-                            @foreach (var room in Model)
-                            {
-                                <tr>
-                                    <td>@room.roomID</td>
-                                    <td>@room.roomDetails</td>
-                                    <td>@room.roomCap</td>
-                                    <td>
-                                        <button class="actionButton" data-req-id="@room.roomID">Details</button>
-                                    </td>
-                                </tr>
-                            }
-                             -->
+                            <tr>
+                                <td>1</td>
+                                <td><img src="images/1.svg" alt="" width="100px" ></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
